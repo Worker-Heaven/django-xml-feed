@@ -16,6 +16,12 @@
 </div>
 
 <div class="container">
+    <div class="d-flex flex-column">
+    {% for site in sites %}
+        <div class="p-2">{{ site.url }}</div>
+    {% endfor %}
+    </div>
+
     <a href="{% url 'add' %}">
         <button type="button" class="btn btn-info">Add New</button>
     </a>
