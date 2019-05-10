@@ -1,0 +1,25 @@
+{% extends 'mainboard/base.html' %}
+
+{% load static %}
+
+
+{% block css %}
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'mainboard/mycss.css' %}"> -->
+{% endblock %}
+
+
+{% block content %}
+
+<div class="jumbotron text-center">
+    <h1>XML Feed Service</h1>
+    <p>Generate xml feed for the specific sites!</p>
+</div>
+
+<div class="container">
+    <a href="{% url 'add' %}">
+        <button type="button" class="btn btn-info">Add New</button>
+    </a>
+</div>
+
+{% endblock %}
+

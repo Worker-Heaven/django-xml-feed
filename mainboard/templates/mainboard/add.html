@@ -1,0 +1,64 @@
+{% extends 'mainboard/base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'mainboard/mycss.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="jumbotron text-center">
+    <h1>XML Feed Service</h1>
+    <p>Generate xml feed for the specific sites!</p>
+</div>
+
+<div class="container">
+    <div class="row" id="scheduler-change">
+        <div class="col-sm-8">
+            <div class="form-group">
+                <label for="duration">Select duration:</label>
+                <select class="form-control" id="duration">
+                    <option value="12">Every 12 hours</option>
+                    <option value="24">Every 24 hours</option>
+                    <option value="48">Every 48 hours</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row d-flex flex-column container checklist" id="member-list">
+        {% for item in items %}
+        <div class="form-check">
+            <label class="form-check-label">
+                <input type="checkbox" class="form-check-input items" value="{{item}}">
+                {{ item }}
+            </label>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row container">
+        <button type="button" class="btn btn-info" id="save">Save</button>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block javascript %}
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#save").click(function() {
+            let checked = [];
+            const period = $("#duration option:selected").val();
+            $(".items").each(function() {
+                if (this.checked) checked.push($(this).val());
+            });
+
+            console.log('checked list', period, checked);
+        });
+    });
+</script>
+{% endblock %}

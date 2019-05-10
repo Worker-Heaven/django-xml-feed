@@ -1,0 +1,8 @@
+.checklist {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.checklist > div {
+    padding-bottom: 10px;
+}
