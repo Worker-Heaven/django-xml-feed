@@ -17,20 +17,8 @@
 <div class="container">
     <form method="POST" action="{% url 'add' %}">
         {% csrf_token %}
-        <div class="row" id="scheduler-change">
-            <div class="col-sm-8">
-                <div class="form-group">
-                    <label for="duration">Select duration:</label>
-                    <select class="form-control" id="duration">
-                        <option value="12">Every 12 hours</option>
-                        <option value="24">Every 24 hours</option>
-                        <option value="48">Every 48 hours</option>
-                    </select>
-                </div>
-            </div>
-        </div>
 
-        <div class="row d-flex flex-column container checklist" id="member-list">
+        <div class="row d-flex container checklist" id="member-list">
             {% for item in items %}
             <div class="form-check">
                 <label class="form-check-label">
