@@ -5,6 +5,7 @@ from django.template import loader
 
 from mainboard.models import Site, Item
 
+
 def index(request):
     template = loader.get_template('mainboard/index.html')
 
@@ -16,7 +17,7 @@ def index(request):
     return HttpResponse(template.render(context, request))
 
 
-def add(request):
+def sites_new(request):
     if request.method == 'GET':
         template = loader.get_template('mainboard/add.html')
 
@@ -29,4 +30,21 @@ def add(request):
         return HttpResponse(template.render(context, request))
 
     else:
+        selected_items = request.POST.getlist('items-list')
+
+        if len(selected_items) > 0:
+            print(selected_items)
+
         return HttpResponseRedirect(reverse('index', args=()))
+
+
+def sites_details(request, site_id):
+    return HttpResponse('You are on the details page of {}'.format(site_id))
+
+
+def sites_config_new(request, site_id):
+    return HttpResponse('You are on the config ')
+
+
+def sites_config_details(request, site_id, config_id):
+    return HttpResponse('You are on the config details page {}, {}'.format(site_id, config_id))

@@ -7,12 +7,14 @@ class Item(models.Model):
     def __str__(self):
         return self.label
 
+
 class Site(models.Model):
     url = models.CharField(max_length=255)
     items = models.ManyToManyField('Item')
 
     def __str__(self):
         return self.url
+
 
 class Config(models.Model):
     items = models.ManyToManyField('Item')

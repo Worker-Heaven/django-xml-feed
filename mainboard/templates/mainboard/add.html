@@ -15,14 +15,14 @@
 </div>
 
 <div class="container">
-    <form method="POST" action="{% url 'add' %}">
+    <form method="POST" action="{% url 'sites_new' %}">
         {% csrf_token %}
 
         <div class="row d-flex container checklist" id="member-list">
             {% for item in items %}
             <div class="form-check">
                 <label class="form-check-label">
-                    <input type="checkbox" class="form-check-input items" value="{{item}}">
+                    <input type="checkbox" class="form-check-input items" value="{{item}}" name="items-list">
                     {{ item }}
                 </label>
             </div>

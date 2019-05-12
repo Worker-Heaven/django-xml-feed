@@ -18,11 +18,13 @@
 <div class="container">
     <div class="d-flex flex-column">
     {% for site in sites %}
-        <div class="p-2">{{ site.url }}</div>
+        <div class="p-2">
+            <a href="{% url 'sites_details' site_id=site.id %}">{{ site.url }}</a>
+        </div>
     {% endfor %}
     </div>
 
-    <a href="{% url 'add' %}">
+    <a href="{% url 'sites_new' %}">
         <button type="button" class="btn btn-info">Add New</button>
     </a>
 </div>
