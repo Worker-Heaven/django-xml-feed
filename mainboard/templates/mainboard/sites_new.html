@@ -9,14 +9,16 @@
 
 {% block content %}
 
-<div class="jumbotron text-center">
-    <h1>XML Feed Service</h1>
-    <p>Generate xml feed for the specific sites!</p>
-</div>
-
 <div class="container">
     <form method="POST" action="{% url 'sites_new' %}">
         {% csrf_token %}
+
+        <div class="row d-flex container">
+            <label for="site-url" class="col-sm-2 col-form-label">Site URL:</label>
+            <div class="col-sm-10">
+                <input type="input" id="site-url" class="form-control" name="site-url" placeholder="Enter URL">
+            </div>
+        </div>
 
         <div class="row d-flex container checklist" id="member-list">
             {% for item in items %}

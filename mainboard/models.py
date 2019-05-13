@@ -17,6 +17,7 @@ class Site(models.Model):
 
 
 class Config(models.Model):
+    period = models.IntegerField()
     items = models.ManyToManyField('Item')
     site = models.ForeignKey(
         'Site',

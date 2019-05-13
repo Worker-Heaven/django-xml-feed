@@ -10,16 +10,11 @@
 
 {% block content %}
 
-<div class="jumbotron text-center">
-    <h1>XML Feed Service</h1>
-    <p>Generate xml feed for the specific sites!</p>
-</div>
-
 <div class="container">
     <div class="d-flex flex-column">
-    {% for site in sites %}
+    {% for con in config %}
         <div class="p-2">
-            <a href="{% url 'sites_details' site_id=site.id %}">{{ site.url }}</a>
+            <a href="{% url 'sites_config_details' site_id=con.site.id config_id=con.id %}">{{ con.site.url }}</a>
         </div>
     {% endfor %}
     </div>

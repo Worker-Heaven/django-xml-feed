@@ -1,0 +1,22 @@
+{% extends 'mainboard/base.html' %}
+{% load static %}
+
+
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{% static 'mainboard/mycss.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container" id="member-list">
+    {% for item in items %}
+    <div class="form-check">
+        <label class="form-check-label">
+            <input type="checkbox" class="form-check-input items" value="{{item}}" name="items-list">
+            {{ item }}
+        </label>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
